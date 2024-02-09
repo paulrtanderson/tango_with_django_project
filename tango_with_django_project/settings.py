@@ -72,6 +72,8 @@ TEMPLATES = [
     },
 ]
 
+LOGIN_URL = 'rango:login'
+
 WSGI_APPLICATION = 'tango_with_django_project.wsgi.application'
 
 
