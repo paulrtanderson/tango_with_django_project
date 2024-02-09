@@ -36,7 +36,6 @@ def index(request):
     context_dict['pages'] = pages_list
     
     visitor_cookie_handler(request)
-    context_dict['visits'] = request.session['visits']
     
     response = render(request, 'rango/index.html', context=context_dict)
     return response
@@ -44,9 +43,7 @@ def index(request):
 def about(request):
     context_dict = {'boldmessage': 'This tutorial has been put together by Paul Anderson'}
 
-    if request.session.test_cookie_worked():
-        print("TEST COOKIE WORKED!")
-        request.session.delete_test_cookie()
+    context_dict['visits'] = request.session['visits']
 
     return render(request, 'rango/about.html',context=context_dict)
 
